@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Livewire\ShowArticles;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,4 +25,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    // Route::get('/dashboard',  ShowArticles::class)
+    // })->name('dashboard');
+    Route::get('/articles', ShowArticles::class)->name('articles');
 });
