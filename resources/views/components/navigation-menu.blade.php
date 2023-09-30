@@ -2,20 +2,20 @@
     {{-- Searchbar --}}
     <div class="flex items-center">
         <div class="relative mr-4 lg:mx-0">
-            <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+            {{-- <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
                 <svg class="h-5 w-5 text-gray-500" viewBox="0 0 24 24" fill="none">
                     <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </span>
 
-            <input class="form-input w-32 sm:w-64 rounded-md pl-10 pr-4 p-2 bg-gray-100 focus:bg-transparent focus:border-indigo-300" type="text" placeholder="Search">
+            <input class="form-input w-32 sm:w-64 rounded-md pl-10 pr-4 p-2 bg-gray-100 focus:bg-transparent focus:border-indigo-300" type="text" placeholder="Search"> --}}
         </div>
     </div>
     {{-- End Searchbar --}}
 
     <div class="flex items-center">
         {{-- Notifications --}}
-        <div x-data="{ notificationOpen: false }" class="relative">
+        {{-- <div x-data="{ notificationOpen: false }" class="relative">
             <button @click="notificationOpen = ! notificationOpen"
                     class="flex mx-4 text-gray-600 focus:outline-none">
                 <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +62,7 @@
                     </p>
                 </a>
             </div>
-        </div>
+        </div> --}}
         {{-- End Notifications --}}
 
         {{-- User Dropdown --}}
@@ -123,11 +123,11 @@
 
                 <!-- Account Management -->
                 <div class="block px-4 py-2 text-xs text-gray-400">
-                    {{ __('Manage Account') }}
+                    {{ __('Administrar cuenta') }}
                 </div>
 
                 <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                    {{ __('Profile') }}
+                    {{ __('Perfil') }}
                 </x-jet-dropdown-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -143,7 +143,7 @@
                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                          onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Salir') }}
                     </x-jet-dropdown-link>
                 </form>
             </div>

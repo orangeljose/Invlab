@@ -18,7 +18,7 @@
 
         <tr class="hover:bg-gray-50">
             <td class="px-6 py-4 text-sm text-gray-500">
-                {{-- @livewire('create-article') --}}
+                @livewire('create-article')
             </td>   
             <x-jet-bar-table-data/>
             <x-jet-bar-table-data/>
@@ -54,17 +54,15 @@
                         </x-jet-bar-table-data>
 
                         <x-jet-bar-table-data>
-                            <a href="#" class="text-gray-400 hover:text-gray-500">
-                                <a class="btn btn-green" wire:click="edit({{$item}})">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                            </a>
 
-                            <a href="#" class="text-gray-400 hover:text-gray-500 ml-2">
-                                <a class="btn btn-red" wire:click="$emit('deleteArticle', {{$item->id}})">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            </a>
+                            <x-jet-secondary-button wire:click="edit({{$item}})">
+                                <x-jet-bar-icon type="pencil" fill />
+                            </x-jet-secondary-button>
+
+                            <x-jet-secondary-button wire:click="$emit('deleteArticle', {{$item->id}})">
+                                <x-jet-bar-icon type="trash" fill />
+                            </x-jet-secondary-button>
+                            
                         </x-jet-bar-table-data>
 
                     </tr>
@@ -119,13 +117,18 @@
             
 
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="$set('open_edit', false)">
-                Cancel
-            </x-jet-secondary-button>
 
-            <x-jet-danger-button wire:click="update" wire:loading.attr="disabled" wire:target="save" class="disabled:opacity-25">
-                Actualizar
-            </x-jet-danger-button>
+            <div>
+
+                <x-jet-secondary-button wire:click="$set('open_edit', false)">
+                    Cancel
+                </x-jet-secondary-button>
+    
+                <x-jet-secondary-button wire:click="update" wire:loading.attr="disabled" wire:target="save" class="disabled:opacity-25">
+                    Actualizar
+                </x-jet-secondary-button>
+
+            </div>
 
         </x-slot>
         
