@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ShowArticles;
 use App\Http\Livewire\ShowRequests;
 use App\Http\Livewire\ShowInventorys;
+use App\Http\Livewire\ShowReports;
+use App\Http\Livewire\ShowUsers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +19,8 @@ use App\Http\Livewire\ShowInventorys;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');;
+    // return view('login');
+})->name('home');
 
 Route::middleware([
     'auth:sanctum',
@@ -32,4 +35,6 @@ Route::middleware([
     Route::get('/articles', ShowArticles::class)->name('articles');
     Route::get('/requests', ShowRequests::class)->name('requests');
     Route::get('/inventorys', ShowInventorys::class)->name('inventorys');
+    Route::get('/reports', ShowReports::class)->name('reports');
+    Route::get('/users', ShowUsers::class)->name('users');
 });

@@ -23,13 +23,13 @@ class CreateArticle extends Component
         'max_stock' => 'required',
     ];
 
-    // public function updated($propertyName){
-    //     $this->validateOnly($propertyName);
-    // }
+    public function updated($propertyName){
+        $this->validateOnly($propertyName);
+    }
 
     public function saveArticle()
     {
-        // $this->validate();
+        $this->validate();
 
         Article::create([
             'name' => $this->name,

@@ -103,13 +103,19 @@
                             
                         </option>
                         <option value="1">
-                            Almacén de Producción
+                            Estante 1
                         </option>
                         <option value="2">
-                            Almacén de Logística
+                            Estante 2
                         </option>
                         <option value="3">
-                            Almacén de Laboratorio
+                            Nevera 1
+                        </option>
+                        <option value="4">
+                            Nevera 2
+                        </option>
+                        <option value="5">
+                            Nevera 3
                         </option>
                     </select>
                 </div>

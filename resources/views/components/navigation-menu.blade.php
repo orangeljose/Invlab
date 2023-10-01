@@ -15,7 +15,7 @@
 
     <div class="flex items-center">
         {{-- Notifications --}}
-        {{-- <div x-data="{ notificationOpen: false }" class="relative">
+        <div x-data="{ notificationOpen: false }" class="relative">
             <button @click="notificationOpen = ! notificationOpen"
                     class="flex mx-4 text-gray-600 focus:outline-none">
                 <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,8 +62,8 @@
                     </p>
                 </a>
             </div>
-        </div> --}}
-        {{-- End Notifications --}}
+        </div>
+        {{-- End Notifications
 
         {{-- User Dropdown --}}
 

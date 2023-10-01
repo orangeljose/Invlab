@@ -17,7 +17,7 @@ class CreateInventory extends Component
         'batch' => 'required',
         'quantity' => 'required|integer',
         'action' => 'required',
-        'reason' => 'required|min:10|max:30',
+        'reason' => '',
         'provider' => 'required',
         'location' => 'required',
     ];

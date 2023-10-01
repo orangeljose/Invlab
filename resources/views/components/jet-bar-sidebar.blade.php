@@ -37,15 +37,15 @@
         ],
         [
             'name'   => 'Reportes',
-            'route'  => route('profile.show'),
-            'active' => request()->routeIs('profile.show'),
+            'route'  => route('reports'),
+            'active' => request()->routeIs('reports'),
             'image' => '/sidebar/articles2-blanco.svg',
             'childs' => []
         ],
         [
             'name'   => 'Usuarios',
-            'route'  => route('profile.show'),
-            'active' => request()->routeIs('profile.show'),
+            'route'  => route('users'),
+            'active' => request()->routeIs('users'),
             'image' => '/sidebar/admin-blanco.svg',
             'childs' => []
         ],
