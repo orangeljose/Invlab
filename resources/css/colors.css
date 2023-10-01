@@ -1,0 +1,15 @@
+.side-bar-invlab {
+    @apply bg-sky-400;
+}
+
+.headers-invlab {
+    @apply bg-teal-500; 
+}
+
+.button-invlab {
+    @apply bg-sky-800;  
+}
+
+.button-invlab-edit {
+    @apply bg-emerald-300;  
+}

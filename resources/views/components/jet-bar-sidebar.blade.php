@@ -26,7 +26,7 @@
             'route'  => route('articles'),
             'active' => request()->routeIs('articles'),
             'image' => '/sidebar/inventario-blanco.svg',
-            'childs' => [request()->routeIs('articles')]
+            'childs' => []
         ],
         [
             'name'   => 'Muestras',
@@ -52,10 +52,11 @@
     ]
 @endphp
 
-<div @click.away="open = false" class="flex flex-col w-full lg:w-64 text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0 lg:border-r" x-data="{ open: false }">
-    <div class="flex-shrink-0 px-4 lg:px-8 py-4 flex flex-row items-center justify-between">
+<div @click.away="open = false" class="flex flex-col w-full lg:w-64 text-gray-700 side-bar-invlab dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0 lg:border-r" x-data="{ open: false }">
+    <div class="flex-shrink-0 px-4 lg:px-8 py-4 flex flex-row items-center border-b-2 border-white">
         <!-- App Title -->
-        <a href="{{ route('dashboard') }}" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">{{ config('app.name', 'Jetbar') }}</a>
+        <img src="/sidebar/logo-invlab-blanco.svg" alt="Logo" class="h-10 w-10 mr-2">
+        <a href="{{ route('dashboard') }}" class="text-lg font-semibold tracking-widest text-white text-xl uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">{{ config('app.name', 'Jetbar') }}</a>
         <!-- End App Title -->
         <button class="rounded-lg lg:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
             <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
@@ -73,12 +74,12 @@
                 <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 {{ request()->routeIs('teams.show') ? 'bg-gray-200' : 'bg-transparent' }} rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">Team Settings</a>
         @endif
         @foreach ($nav_links as $nav_link)
-            @if(empty($nav_link['childs']))
-                <a class="flex justify-start items-center px-4 py-2 mt-2 text-lg font-semibold text-gray-900 {{ $nav_link['active'] ? 'bg-gray-200' : 'bg-transparent' }} rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 hover:bg-gray-200 focus:text-gray-900 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('profile.show') }}">
+            {{-- @if(empty($nav_link['childs'])) --}}
+                <a class="flex justify-start items-center px-4 py-2 mt-2 font-semibold text-white text-xl  {{ $nav_link['active'] ? 'bg-gray-200' : 'bg-transparent' }} rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 hover:bg-gray-200 focus:text-gray-900 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{$nav_link['route']}}">
                     <img src="{{$nav_link['image']}}" alt="Logo" class="h-8 w-8 mr-2 mt-0">
                     {{$nav_link['name']}}
                 </a>
-            @else
+            {{-- @else
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
                 <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 lg:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                     <span>Dropdown</span>
@@ -92,7 +93,7 @@
                     </div>
                 </div>
             </div>
-            @endif
+            @endif --}}
         @endforeach
 
         <x-jet-bar-responsive-links/>

@@ -1,7 +1,7 @@
 <div>
-    <x-jet-secondary-button wire:click="$set('open', true)">
+    <button wire:click="$set('open', true)" class='button-invlab inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
         Registrar
-    </x-jet-secondary-button>
+    </button>
 
     <x-jet-dialog-modal wire:model="open">
 
@@ -36,13 +36,13 @@
             
 
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="$set('open', false)">
+            <button wire:click="$set('open', false)" class='mx-2 button-invlab inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
                 Cancelar
-            </x-jet-secondary-button>
+            </button>
 
-            <x-jet-secondary-button wire:click="save" wire:loading.attr="disabled" wire:target="save" class="disabled:opacity-25">
+            <button wire:click="save" class='mx-2 button-invlab inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
                 Guardar
-            </x-jet-secondary-button>
+            </button>
 
         </x-slot>
         

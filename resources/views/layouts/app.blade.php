@@ -31,7 +31,7 @@
         <x-navigation-menu />
 
         <!-- Content Container -->
-        <main class="flex-1 relative z-0 overflow-y-auto py-6 focus:outline-none" tabindex="0" x-init="$el.focus()">
+        <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabindex="0" x-init="$el.focus()">
             @if (isset($header))
                 <div class="max-w-7xl mx-auto pt-3 px-4 sm:px-6 lg:px-8">
                     <!-- Title -->

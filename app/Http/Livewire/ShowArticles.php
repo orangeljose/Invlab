@@ -45,7 +45,7 @@ class ShowArticles extends Component
                                 ->where('batch','like','%' . $this->batch . '%')
                                 ->where('due_date','like','%' . $this->due_date . '%')
                                 ->orderBy($this->sort, $this->direction)
-                                ->paginate(10);
+                                ->paginate(5);
 
         return view('livewire.show-articles', compact('articles'));
     }
