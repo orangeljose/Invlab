@@ -9,22 +9,22 @@
         ],
         [
             'name'   => 'Catalogo',
-            'route'  => route('home'),
-            'active' => request()->routeIs('home'),
+            'route'  => route('articles'),
+            'active' => request()->routeIs('articles'),
             'image' => '/sidebar/catalogo-blanco.svg',
             'childs' => []
         ],
         [
             'name'   => 'Solicitudes',
-            'route'  => route('profile.show'),
-            'active' => request()->routeIs('profile.show'),
+            'route'  => route('requests'),
+            'active' => request()->routeIs('requests'),
             'image' => '/sidebar/solicitudes-blanco.svg',
             'childs' => []
         ],
         [
             'name'   => 'Inventarios',
-            'route'  => route('articles'),
-            'active' => request()->routeIs('articles'),
+            'route'  => route('inventorys'),
+            'active' => request()->routeIs('inventorys'),
             'image' => '/sidebar/inventario-blanco.svg',
             'childs' => []
         ],

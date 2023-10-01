@@ -4,7 +4,7 @@
     :sort="['', '', '', '']">
         <tr class="hover:bg-gray-50">
             <x-jet-bar-table-data>
-                <x-search-field :name="'Código'" :model="'code'" :type="'text'"/>                                
+                <x-search-field :name="'Código'" :model="'code'" :type="'number'"/>                                
             </x-jet-bar-table-data>
             <x-jet-bar-table-data>
                 <x-search-field :name="'Nombre'" :model="'name'" :type="'text'"/>
@@ -56,7 +56,7 @@
 
                         <x-jet-bar-table-data>
 
-                            <button wire:click="$set('open', false)" class='mx-2 button-invlab-edit inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
+                            <button wire:click="edit({{$item}})" class='mx-2 button-invlab-edit inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
                                 <x-jet-bar-icon type="pencil" fill />
                             </button>
 

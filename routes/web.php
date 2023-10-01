@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ShowArticles;
+use App\Http\Livewire\ShowRequests;
+use App\Http\Livewire\ShowInventorys;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,4 +30,6 @@ Route::middleware([
     // Route::get('/dashboard',  ShowArticles::class)
     // })->name('dashboard');
     Route::get('/articles', ShowArticles::class)->name('articles');
+    Route::get('/requests', ShowRequests::class)->name('requests');
+    Route::get('/inventorys', ShowInventorys::class)->name('inventorys');
 });
