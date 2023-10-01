@@ -9,5 +9,5 @@ class Article extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description','batch','stock','due_date', 'employee_id'];
+    protected $fillable = ['name', 'description','batch','type','brand','unit','min_stock','max_stock','due_date', 'employee_id'];
 }

@@ -16,8 +16,12 @@ class ArticleFactory extends Factory
         return [
             'name' => $this->faker->unique()->word,
             'description' => $this->faker->sentence(),
-            'batch' => $this->faker->unique()->randomNumber(8),
-            'stock' => $this->faker->unique()->randomNumber(3),
+            'batch' => $this->faker->randomNumber(8),
+            'type' => $this->faker->randomElement(['Insumo', 'Material', 'Reactivo']),
+            'brand' => $this->faker->randomElement(['Labtest', 'Egens', 'Jaffer']),
+            'unit' => $this->faker->randomElement(['Pieza', 'Caja', 'Botella']),
+            'min_stock' => $this->faker->randomNumber(1),
+            'max_stock' => $this->faker->randomNumber(3),
             'due_date' =>$this->faker->dateTimeBetween('tomorrow', '+100 days'),
         ];
     }

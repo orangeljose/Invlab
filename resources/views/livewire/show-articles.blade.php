@@ -9,12 +9,8 @@
             <x-jet-bar-table-data>
                 <x-search-field :name="'Nombre'" :model="'name'" :type="'text'"/>
             </x-jet-bar-table-data>
-            <x-jet-bar-table-data>
-                <x-search-field :name="'Lote'" :model="'batch'" :type="'text'"/>
-            </x-jet-bar-table-data>
-            <x-jet-bar-table-data>
-                <x-search-field :name="'Fecha de vencimiento'" :model="'due_date'" :type="'date'"/>
-            </x-jet-bar-table-data>
+            <x-jet-bar-table-data/>
+            <x-jet-bar-table-data/>
         </tr>
 
         <tr class="hover:bg-gray-50">
@@ -28,8 +24,8 @@
     </x-jet-bar-table-mod>
 
     @if($articles->count())
-        <x-jet-bar-table-mod :headers="['Código', 'Nombre', 'Fecha de vencimiento', 'Lote', 'Stock', '']"
-            :sort="['id', 'name', 'due_date', 'batch', 'stock', '']">
+        <x-jet-bar-table-mod :headers="['Código', 'Nombre', 'Lote', 'Tipo', 'Unidad','Min Stock', 'Max Stock', '']"
+            :sort="['id', 'name', 'batch', 'type', 'unit','min_stock', 'max_stock', '']">
             
                 @foreach ($articles as $item)
                     <tr class="hover:bg-gray-50">
@@ -43,15 +39,23 @@
                         </x-jet-bar-table-data>
 
                         <x-jet-bar-table-data>
-                            {{$item->due_date}}
-                        </x-jet-bar-table-data>
-
-                        <x-jet-bar-table-data>
                             {{$item->batch}}
                         </x-jet-bar-table-data>
 
                         <x-jet-bar-table-data>
-                            {{$item->stock}}
+                            {{$item->type}}
+                        </x-jet-bar-table-data>
+
+                        <x-jet-bar-table-data>
+                            {{$item->unit}}
+                        </x-jet-bar-table-data>
+
+                        <x-jet-bar-table-data>
+                            {{$item->min_stock}}
+                        </x-jet-bar-table-data>
+
+                        <x-jet-bar-table-data>
+                            {{$item->max_stock}}
                         </x-jet-bar-table-data>
 
                         <x-jet-bar-table-data>
@@ -110,26 +114,84 @@
                 <x-jet-input-error for="article.batch"/>
             </div>
             <div class="mb-4">
-                <x-jet-label value="Stock"/>
-                <x-custom-input :type="'number'" class="w-full" wire:model="article.stock"/>
-                <x-jet-input-error for="article.stock"/>
+            <div class="col-span-6 sm:col-span-4">
+                <x-jet-label value="Tipo del artículo"/>
+                    <select id="type" class="block mt-1 w-full" wire:model="article.type">
+                        <option value="">
+                            
+                        </option>
+                        <option value="Insumo">
+                            Insumo
+                        </option>
+                        <option value="Material">
+                            Material
+                        </option>
+                        <option value="Material">
+                            Material
+                        </option>
+                    </select>
+                </div>
+                <x-jet-input-error for="article.type"/>
+            </div>
+            <div class="mb-4">
+                <div class="col-span-6 sm:col-span-4">
+                    <x-jet-label value="Marca del artículo"/>
+                    <select id="brand" class="block mt-1 w-full" wire:model="article.brand">
+                        <option value="">
+                            
+                        </option>
+                        <option value="Labtest">
+                            Labtest
+                        </option>
+                        <option value="Egens">
+                            Egens
+                        </option>
+                        <option value="Jaffer">
+                            Jaffer
+                        </option>
+                    </select>
+                </div>
+                <x-jet-input-error for="article.brand"/>
+            </div>
+            <div class="mb-4">
+                <div class="col-span-6 sm:col-span-4">
+                    <x-jet-label value="Unidad de Presentación"/>
+                    <select id="unit" class="block mt-1 w-full" wire:model="article.unit">
+                        <option value="">
+                            
+                        </option>
+                        <option value="Pieza">
+                            Pieza
+                        </option>
+                        <option value="Caja">
+                            Caja
+                        </option>
+                        <option value="Botella">
+                            Botella
+                        </option>
+                    </select>
+                </div>
+                <x-jet-input-error for="article.unit"/>
+            </div>
+            <div class="mb-4">
+                <x-jet-label value="Min Stock"/>
+                <x-custom-input :type="'number'" class="w-full" wire:model="article.min_stock"/>
+                <x-jet-input-error for="article.min_stock"/>
+            </div>
+            <div class="mb-4">
+                <x-jet-label value="Max Stock"/>
+                <x-custom-input :type="'number'" class="w-full" wire:model="article.max_stock"/>
+                <x-jet-input-error for="article.max_stock"/>
             </div>
         </x-slot>
-            
-
         <x-slot name="footer">
+            <button wire:click="$set('open_edit', false)" class='mx-2 button-invlab inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
+                Cancelar
+            </button>
 
-            <div>
-
-                <x-jet-secondary-button wire:click="$set('open_edit', false)">
-                    Cancel
-                </x-jet-secondary-button>
-    
-                <x-jet-secondary-button wire:click="update" wire:loading.attr="disabled" wire:target="save" class="disabled:opacity-25">
-                    Actualizar
-                </x-jet-secondary-button>
-
-            </div>
+            <button wire:click="update" class='mx-2 button-invlab inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
+                Actualizar
+            </button>
 
         </x-slot>
         

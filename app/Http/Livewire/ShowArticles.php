@@ -25,7 +25,11 @@ class ShowArticles extends Component
         'article.description' => 'max:90',
         'article.due_date' => 'required',
         'article.batch' => 'required',
-        'article.stock' => 'required',
+        'article.type' => 'required',
+        'article.brand' => 'required',
+        'article.unit' => 'required',
+        'article.min_stock' => 'required',
+        'article.max_stock' => 'required',
     ];
 
     protected $listeners = ['render', 'delete'];

@@ -18,7 +18,11 @@ class CreateArticlesTable extends Migration
             $table->string('name',30);
             $table->string('description',90)->nullable();
             $table->string('batch');
-            $table->string('stock');         
+            $table->string('type')->nullable();         
+            $table->string('brand')->nullable();   
+            $table->string('unit')->nullable();         
+            $table->string('min_stock');         
+            $table->string('max_stock');         
             $table->date('due_date');            
             $table->timestamps();
             $table->softDeletes();

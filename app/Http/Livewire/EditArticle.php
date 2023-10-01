@@ -16,7 +16,11 @@ class EditArticle extends Component
         'article.description' => 'max:90',
         'article.due_date' => 'required',
         'article.batch' => 'required',
-        'article.stock' => 'required',
+        'type' => 'required',
+        'brand' => 'required',
+        'unit' => 'required',
+        'article.min_stock' => 'required',
+        'article.max_stock' => 'required',
     ];
 
     public function mount(Article $article){
