@@ -38,7 +38,8 @@
         [
             'name'   => 'Reportes',
             'route'  => route('reports'),
-            'active' => request()->routeIs('reports'),
+            'active' => (request()->routeIs('reports') || request()->routeIs('reports-expiration') || request()->routeIs('reports-inventory')),
+            // 'active' => request()->routeIs('reports'),
             'image' => '/sidebar/articles2-blanco.svg',
             'childs' => [
                 ['name'   => 'Solicitudes',
@@ -50,8 +51,8 @@
                 'active' => request()->routeIs('reports-expiration')                
                 ],
                 ['name'   => 'Inventario',
-                'route'  => route('reports'),
-                'active' => request()->routeIs('reports')                
+                'route'  => route('reports-inventory'),
+                'active' => request()->routeIs('reports-inventory')                
                 ]
             ]
         ],

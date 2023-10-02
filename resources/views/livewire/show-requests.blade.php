@@ -60,6 +60,11 @@
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
+
+                    <button wire:click="edit()" class='mx-2 button-invlab-edit inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
+                        <x-jet-bar-icon type="pencil" fill />
+                    </button>
+
                     <x-jet-danger-button wire:click="$emit('deleteRequest')">
                         <x-jet-bar-icon type="trash" fill />
                     </x-jet-danger-button>  
@@ -72,7 +77,7 @@
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
-                    Glicemia Enzimatica AA Liquida 250 ML
+                    Glicemia Enzimatica AA
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
@@ -100,6 +105,11 @@
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
+
+                    <button wire:click="edit()" class='mx-2 button-invlab-edit inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
+                        <x-jet-bar-icon type="pencil" fill />
+                    </button>
+
                     <x-jet-danger-button wire:click="$emit('deleteRequest')">
                         <x-jet-bar-icon type="trash" fill />
                     </x-jet-danger-button>  
@@ -140,6 +150,11 @@
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
+
+                    <button wire:click="edit()" class='mx-2 button-invlab-edit inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
+                        <x-jet-bar-icon type="pencil" fill />
+                    </button>
+                    
                     <x-jet-danger-button wire:click="$emit('deleteRequest')">
                         <x-jet-bar-icon type="trash" fill />
                     </x-jet-danger-button>  
@@ -147,6 +162,87 @@
             </tr>
     {{-- </template> --}}
     </x-jet-bar-table-mod>
+
+    <x-jet-dialog-modal wire:model="open_edit">
+
+        <x-slot name="title"> Actualizar estado de Solicitud</x-slot>
+        <x-slot name="content">
+            <div class="mb-4">
+                <div class="col-span-6 sm:col-span-4">
+                    <x-jet-label value="Nombre del artículo"/>
+                    <select id="gender" class="block mt-1 w-full" wire:model="name">
+                        <option value="Aguja Vacuteiner Adulto 2G">
+                            Aguja Vacuteiner Adulto 2G
+                        </option>
+                        <option value="1">
+                            Aguja Vacuteiner Adulto 2G
+                        </option>
+                        <option value="2">
+                            Glicemia Enzimatica AA Liquida 250 ML
+                        </option>
+                        <option value="3">
+                            Carpeta Manila Carta 8 1/2
+                        </option>
+                    </select>
+                </div>
+                <x-jet-input-error for="name"/>
+            </div>
+            <div class="mb-4">
+                <x-jet-label value="Cantidad"/>
+                <x-custom-input :type="'number'" class="w-full" value=5/>
+                <x-jet-input-error for="quantity"/>
+            </div>
+            <div class="mb-4">
+                <x-jet-label value="Departamento"/>
+                <select id="gender" class="block mt-1 w-full" wire:model="department">
+                    <option value="Producción">
+                        Producción 
+                    </option>
+                    <option value="1">
+                        Producción
+                    </option>
+                    <option value="2">
+                        Mercadeo
+                    </option>
+                    <option value="2">
+                        Finanzas
+                    </option>
+                </select>
+                <x-jet-input-error for="department"/>
+            </div>
+            <div class="mb-4">
+                <x-jet-label value="Estado"/>
+                <select id="gender" class="block mt-1 w-full" wire:model="department">
+                    <option value="Pendiente">
+                        Pendiente 
+                    </option>
+                    <option value="1">
+                        Pendiente
+                    </option>
+                    <option value="2">
+                        Aprobado
+                    </option>
+                    <option value="2">
+                        Rechazado
+                    </option>
+                </select>
+                <x-jet-input-error for="department"/>
+            </div>
+        </x-slot>
+            
+
+        <x-slot name="footer">
+            <button wire:click="$set('open_edit', false)" class='mx-2 button-invlab inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
+                Cancelar
+            </button>
+
+            <button wire:click="update" class='mx-2 button-invlab inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
+                Actualizar
+            </button>
+
+        </x-slot>
+        
+    </x-jet-dialog-modal>
 
     @push('js')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
