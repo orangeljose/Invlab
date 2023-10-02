@@ -30,35 +30,18 @@
 
             <div x-show="notificationOpen" class="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl overflow-hidden z-10 border" style="width: 20rem; display: none;">
                 <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 -mx-2">
-                    <figure class="w-1/6">
-                        <img class="h-8 w-8 rounded-full object-cover mx-1" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=334&amp;q=80" alt="avatar">
-                    </figure>
                     <p class="text-sm mx-2 w-full">
-                        <span class="font-bold" href="#">Sara Salah</span> replied on the <span class="font-bold text-indigo-400">Upload Image</span> article. 2m
+                        <span class="font-bold" href="#">Sara Salah</span> ha solicitado <span class="font-bold text-indigo-400">Analisis de muestra</span> hace 2minutos
                     </p>
                 </a>
                 <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 -mx-2">
-                    <figure class="w-1/6">
-                        <img class="h-8 w-8 rounded-full object-cover mx-1" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80" alt="avatar">
-                    </figure>
                     <p class="text-sm mx-2 w-full">
-                        <span class="font-bold" href="#">Slick Net</span> start following you . 45m
+                        <span class="font-bold" href="#">Un Producto ha ingresado en rango minimo de stock</span> 
                     </p>
                 </a>
                 <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 -mx-2">
-                    <figure class="w-1/6">
-                        <img class="h-8 w-8 rounded-full object-cover mx-1" src="https://images.unsplash.com/photo-1450297350677-623de575f31c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=334&amp;q=80" alt="avatar">
-                    </figure>
                     <p class="text-sm mx-2 w-full">
-                        <span class="font-bold" href="#">Jane Doe</span> Like Your reply on <span class="font-bold text-indigo-400" href="#">Test with TDD</span> artical . 1h
-                    </p>
-                </a>
-                <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 -mx-2">
-                    <figure class="w-1/6">
-                        <img class="h-8 w-8 rounded-full object-cover mx-1" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=398&amp;q=80" alt="avatar">
-                    </figure>
-                    <p class="text-sm mx-2 w-full">
-                        <span class="font-bold" href="#">Abigail Bennett</span> start following you . 3h
+                        <span class="font-bold" href="#">Yovani </span>Ha generado una solicitud de ingreso tipo <span class="font-bold text-indigo-400" href="#">Material</span> hace 1h
                     </p>
                 </a>
             </div>

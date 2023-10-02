@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class ShowRequests extends Component
 {
-    public $code, $fecha_ini, $fecha_end;
+    public $code, $fecha_ini, $fecha_end, $department;
     public $sort = 'id';
     public $direction = 'desc';
     public $open_edit = false;

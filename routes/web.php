@@ -20,10 +20,11 @@ use App\Http\Livewire\ShowMuestras;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-    // return view('login');
-})->name('home');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('home');
+
+Route::Redirect('/', 'login')->name('home');
 
 Route::middleware([
     'auth:sanctum',
