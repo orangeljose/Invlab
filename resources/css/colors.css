@@ -13,3 +13,11 @@
 .button-invlab-edit {
     @apply bg-emerald-300;  
 }
+
+.button-invlab-yellow {
+    @apply bg-yellow-400;  
+}
+
+.button-invlab-orange {
+    @apply bg-orange-400;  
+}

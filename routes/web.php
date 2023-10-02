@@ -5,7 +5,9 @@ use App\Http\Livewire\ShowArticles;
 use App\Http\Livewire\ShowRequests;
 use App\Http\Livewire\ShowInventorys;
 use App\Http\Livewire\ShowReports;
+use App\Http\Livewire\ShowExpirationReport;
 use App\Http\Livewire\ShowUsers;
+use App\Http\Livewire\ShowMuestras;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,5 +38,7 @@ Route::middleware([
     Route::get('/requests', ShowRequests::class)->name('requests');
     Route::get('/inventorys', ShowInventorys::class)->name('inventorys');
     Route::get('/reports', ShowReports::class)->name('reports');
+    Route::get('/reports-expiration', ShowExpirationReport::class)->name('reports-expiration');
     Route::get('/users', ShowUsers::class)->name('users');
+    Route::get('/muestras', ShowMuestras::class)->name('muestras');
 });
