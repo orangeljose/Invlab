@@ -23,7 +23,7 @@
         </tr>
     </x-jet-bar-table-mod>
 
-    <x-jet-bar-table-mod :headers="['Nro Solicitud', 'Nombre Articulo', 'Presentación', 'Cant', 'Fecha realizada', 'Fecha entrega', 'Estado', 'Departamento']"
+    <x-jet-bar-table-mod :headers="['Nro Solicitud', 'Nombre Articulo', 'Unidad', 'Cant', 'Fecha realizada', 'Fecha entrega', 'Estado', 'Departamento']"
     :sort="['', '', '', '', '', '', '', '']">
     
             <tr class="hover:bg-gray-50">
@@ -36,7 +36,7 @@
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
-                    Ampollas
+                    Pieza
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
@@ -71,7 +71,7 @@
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
-                    Ampollas
+                    Botella
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
@@ -141,7 +141,7 @@
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
-                    Ampollas
+                    Pieza
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
@@ -176,7 +176,7 @@
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
-                    Ampollas
+                    Botella
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
@@ -211,7 +211,7 @@
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
-                    Tabletas
+                    Pieza
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>

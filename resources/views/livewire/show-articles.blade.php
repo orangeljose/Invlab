@@ -155,7 +155,7 @@
             </div>
             <div class="mb-4">
                 <div class="col-span-6 sm:col-span-4">
-                    <x-jet-label value="Unidad de Presentación"/>
+                    <x-jet-label value="Unidad"/>
                     <select id="unit" class="block mt-1 w-full" wire:model="article.unit">
                         <option value="">
                             
