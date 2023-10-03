@@ -44,7 +44,7 @@ class ShowUsers extends Component
 
         $users = User::where('id','like','%' . $this->code . '%')
         ->where('name','like','%' . $this->name . '%')
-        ->orWhere('email','like','%' . $this->name . '%')
+        // ->orWhere('email','like','%' . $this->name . '%')
         ->orderBy($this->sort, $this->direction)
         ->paginate(5);
 
