@@ -15,9 +15,13 @@
         </tr>
 
         <tr class="hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-500">
-                @livewire('create-request')
-            </td>   
+            @can('request.add')
+                <td class="px-6 py-4 text-sm text-gray-500">
+                    @livewire('create-request')
+                </td>   
+            @else 
+                <x-jet-bar-table-data/>
+            @endcan
             <x-jet-bar-table-data/>
             <x-jet-bar-table-data/>
         </tr>
@@ -60,7 +64,7 @@
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
-
+                    @can('request.update')
                     <button wire:click="edit()" class='mx-2 button-invlab-edit inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
                         <x-jet-bar-icon type="pencil" fill />
                     </button>
@@ -68,6 +72,7 @@
                     <x-jet-danger-button wire:click="$emit('deleteRequest')">
                         <x-jet-bar-icon type="trash" fill />
                     </x-jet-danger-button>  
+                    @endcan
                 </x-jet-bar-table-data>
             </tr>
 
@@ -105,7 +110,7 @@
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
-
+                    @can('request.update')
                     <button wire:click="edit()" class='mx-2 button-invlab-edit inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
                         <x-jet-bar-icon type="pencil" fill />
                     </button>
@@ -113,6 +118,7 @@
                     <x-jet-danger-button wire:click="$emit('deleteRequest')">
                         <x-jet-bar-icon type="trash" fill />
                     </x-jet-danger-button>  
+                    @endcan
                 </x-jet-bar-table-data>
             </tr>
 
@@ -150,7 +156,7 @@
                 </x-jet-bar-table-data>
 
                 <x-jet-bar-table-data>
-
+                    @can('request.update')
                     <button wire:click="edit()" class='mx-2 button-invlab-edit inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>
                         <x-jet-bar-icon type="pencil" fill />
                     </button>
@@ -158,6 +164,7 @@
                     <x-jet-danger-button wire:click="$emit('deleteRequest')">
                         <x-jet-bar-icon type="trash" fill />
                     </x-jet-danger-button>  
+                    @endcan
                 </x-jet-bar-table-data>
             </tr>
     {{-- </template> --}}
@@ -213,9 +220,6 @@
             <div class="mb-4">
                 <x-jet-label value="Estado"/>
                 <select id="gender" class="block mt-1 w-full" wire:model="department">
-                    <option value="Pendiente">
-                        Pendiente 
-                    </option>
                     <option value="1">
                         Pendiente
                     </option>

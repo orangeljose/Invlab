@@ -5,6 +5,7 @@
             'route'  => route('dashboard'),
             'active' => request()->routeIs('dashboard'),
             'image' => '/sidebar/dashboard-blanco.svg',
+            'can' => 'dashboard',
             'childs' => []
         ],
         [
@@ -12,6 +13,7 @@
             'route'  => route('articles'),
             'active' => request()->routeIs('articles'),
             'image' => '/sidebar/catalogo-blanco.svg',
+            'can' => 'articles',
             'childs' => []
         ],
         [
@@ -19,6 +21,7 @@
             'route'  => route('requests'),
             'active' => request()->routeIs('requests'),
             'image' => '/sidebar/solicitudes-blanco.svg',
+            'can' => 'dashboard',
             'childs' => []
         ],
         [
@@ -27,41 +30,41 @@
             // 'active' => request()->routeIs('inventorys'),
             'active' => (request()->routeIs('inventorys') || request()->routeIs('muestras')),
             'image' => '/sidebar/inventario-blanco.svg',
+            'can' => 'dashboard',
             'childs' => [
                 ['name'   => 'Articulos',
                 'route'  => route('inventorys'),
-                'active' => request()->routeIs('inventorys')                
+                'active' => request()->routeIs('inventorys'),
+                'can' => 'inventory',           
                 ],
                 ['name'   => 'Muestras',
                  'route'  => route('muestras'),
-                 'active' => request()->routeIs('muestras'),               
+                 'active' => request()->routeIs('muestras'),
+                 'can' => 'muestras',         
                 ],
             ]
         ],
-        // [
-        //     'name'   => 'Muestras',
-        //     'route'  => route('muestras'),
-        //     'active' => request()->routeIs('muestras'),
-        //     'image' => '/sidebar/muestra-blanco.svg',
-        //     'childs' => []
-        // ],
         [
             'name'   => 'Reportes',
             'route'  => route('reports'),
             'active' => (request()->routeIs('reports') || request()->routeIs('reports-expiration') || request()->routeIs('reports-inventory')),
             'image' => '/sidebar/articles2-blanco.svg',
+            'can' => 'articles',
             'childs' => [
                 ['name'   => 'Solicitudes',
                 'route'  => route('reports'),
-                'active' => request()->routeIs('reports')                
+                'active' => request()->routeIs('reports'),
+                'can' => 'articles',                
                 ],
                 ['name'   => 'Caducidad',
                 'route'  => route('reports-expiration'),
-                'active' => request()->routeIs('reports-expiration')                
+                'active' => request()->routeIs('reports-expiration'),
+                'can' => 'articles',                
                 ],
                 ['name'   => 'Inventario',
                 'route'  => route('reports-inventory'),
-                'active' => request()->routeIs('reports-inventory')                
+                'active' => request()->routeIs('reports-inventory'),
+                'can' => 'articles',                
                 ]
             ]
         ],
@@ -70,6 +73,7 @@
             'route'  => route('users'),
             'active' => request()->routeIs('users'),
             'image' => '/sidebar/admin-blanco.svg',
+            'can' => 'users',
             'childs' => []
         ],
     ]
@@ -98,11 +102,14 @@
         @endif
         @foreach ($nav_links as $nav_link)
             @if(empty($nav_link['childs']) && count($nav_link['childs']) == 0)
+                @can($nav_link['can'])
                 <a class="flex justify-start items-center px-4 py-2 mt-2 font-semibold text-white text-xl  {{ $nav_link['active'] ? 'bg-gray-200' : 'bg-transparent' }} rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 hover:bg-gray-200 focus:text-gray-900 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{$nav_link['route']}}">
                     <img src="{{$nav_link['image']}}" alt="Logo" class="h-8 w-8 mr-2 mt-0">
                     {{$nav_link['name']}}
                 </a>
+                @endcan
             @else
+                @can($nav_link['can'])
                 <a class="flex justify-start items-center px-4 py-2 mt-2 font-semibold text-white text-xl  {{ $nav_link['active'] ? 'bg-gray-200' : 'bg-transparent' }} rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 hover:bg-gray-200 focus:text-gray-900 focus:bg-gray-200 focus:outline-none focus:shadow-outline" aria-controls="dropdown-example{{$nav_link['name']}}" data-collapse-toggle="dropdown-example{{$nav_link['name']}}">
                     <img src="{{$nav_link['image']}}" alt="Logo" class="h-8 w-8 mr-2 mt-0">
                     {{$nav_link['name']}}
@@ -111,11 +118,14 @@
                 
                 <ul id="dropdown-example{{$nav_link['name']}}" class="hidden py-2 space-y-2 list-none">
                     @foreach ($nav_link['childs'] as $child)
+                        @can($child['can'])
                         <li>
                             <a class="flex justify-center items-center px-4 py-2 mt-2 font-semibold text-white text-xl  rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 hover:bg-gray-200 focus:text-gray-900 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{$child['route']}}">{{$child['name']}}</a>
                         </li>
+                        @endcan
                     @endforeach
                 </ul>
+                @endcan
             @endif
         @endforeach
 

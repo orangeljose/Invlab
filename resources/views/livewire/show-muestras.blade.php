@@ -257,6 +257,9 @@
                         <option value="2">
                             Analizado
                         </option>
+                        <option value="3">
+                            Rechazado
+                        </option>
                     </select>
                 </div>
                 <x-jet-input-error for="state"/>

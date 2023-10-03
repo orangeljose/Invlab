@@ -21,9 +21,11 @@ class RoleSeeder extends Seeder
         $role3 = Role::create(['name'=> 'Produccion']);
 
         Permission::create(['name'=> 'dashboard'])->syncRoles([$role1 ,$role2, $role3]);
-        Permission::create(['name'=> 'articles'])->syncRoles([$role1 ,$role2]);
-        Permission::create(['name'=> 'inventory'])->syncRoles([$role1 ,$role2, $role3]);
-        Permission::create(['name'=> 'inventory.add'])->syncRoles([$role1 ,$role2]);
+        Permission::create(['name'=> 'articles'])->syncRoles([$role1 ,$role2]); //catalogo
+        Permission::create(['name'=> 'request.add'])->syncRoles([$role1 ,$role3]); //agregar articulo
+        Permission::create(['name'=> 'request.update'])->assignRole([$role1]); //agregar articulo
+        Permission::create(['name'=> 'inventory'])->syncRoles([$role1 ,$role2, $role3]); //articulo
+        Permission::create(['name'=> 'inventory.add'])->syncRoles([$role1 ,$role2]); //agregar articulo
         Permission::create(['name'=> 'muestras'])->syncRoles([$role1 ,$role3]);     
         Permission::create(['name'=> 'reports'])->syncRoles([$role1 ,$role2, $role3]);
         Permission::create(['name'=> 'users'])->assignRole($role1);

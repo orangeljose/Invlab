@@ -40,8 +40,8 @@
                         <option value="Material">
                             Material
                         </option>
-                        <option value="Material">
-                            Material
+                        <option value="Reactivo">
+                            Reactivo
                         </option>
                     </select>
                 </div>
