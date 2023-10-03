@@ -6,6 +6,8 @@ use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+use Spatie\Permission\Models\Role;
+
 class ShowUsers extends Component
 {
 
@@ -19,8 +21,9 @@ class ShowUsers extends Component
 
     protected $rules = [
         'user.name' => 'required|min:2|max:30',
-        'user.email' => 'required|email|unique:users,email',
-        'user.password' => 'required|min:6|max:12'
+        'user.email' => 'email',
+        'user.password' => '',
+        'user.role' => 'required',
     ];
 
     protected $listeners = ['render', 'delete'];
@@ -36,12 +39,16 @@ class ShowUsers extends Component
     public function render()
     {
 
+        $roles = Role::all();
+        $this->roles = $roles;
+
         $users = User::where('id','like','%' . $this->code . '%')
         ->where('name','like','%' . $this->name . '%')
+        ->orWhere('email','like','%' . $this->name . '%')
         ->orderBy($this->sort, $this->direction)
         ->paginate(5);
 
-        return view('livewire.show-users', compact('users'));
+        return view('livewire.show-users', compact('users', 'roles'));
     }
 
     public function order($sort)
@@ -66,13 +73,18 @@ class ShowUsers extends Component
     public function edit(User $user)
     {
         $this->user = $user;
+        foreach($user->roles as $role) {
+            $this->user->role = $role->id;
+        }
         $this->open_edit = true;
     }
 
     public function update(){
 
+        $this->validate();
         $usuario = User::where('email',$this->user->email)->first();
         $usuario->name = $this->user->name;
+        $usuario->roles()->sync($this->user->role);
         $usuario->update();
         $this->reset(['open_edit']);
         $this->emitTo('show-users','render');

@@ -15,7 +15,7 @@ class CreateMuestra extends Component
         'analysis' => 'required|min:8|max:25',
         'date_taken' => 'required',
         'time' => 'required',
-        'patient' => 'required|integer|min:6|max:9',
+        'patient' => 'required|integer|min:100000|max:999999999',
         'location' => 'required',
         'state' => 'required',
     ];

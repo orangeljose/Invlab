@@ -9,6 +9,7 @@ class ShowInventorys extends Component
     public $code, $name, $batch, $quantity;
     public $sort = 'id';
     public $direction = 'desc';
+    public $open_edit = false;
 
     public function order($sort)
     {
@@ -27,6 +28,18 @@ class ShowInventorys extends Component
             }
 
         }
+    }
+
+    public function edit()
+    {
+        $this->open_edit = true;
+    }
+
+    public function update(){
+
+        $this->reset(['open_edit']);
+        $this->emitTo('show-inventorys','render');
+        $this->emit('alert', 'El Articulo se actualizó correctamente');
     }
 
     public function render()

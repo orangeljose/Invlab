@@ -15,7 +15,7 @@
 
         <tr class="hover:bg-gray-50">
             <td class="px-6 py-4 text-sm text-gray-500">
-                @livewire('create-user')
+                @livewire('create-user', ['roles' => $roles])
             </td>               
             <x-jet-bar-table-data/>
             <x-jet-bar-table-data/>
@@ -41,7 +41,11 @@
                     </x-jet-bar-table-data>
 
                     <x-jet-bar-table-data>
-                        {{$item->id}}
+                        @forelse ($item->roles as $role)
+                            {{$role->name}}
+                        @empty
+                            Sin rol
+                        @endforelse
                     </x-jet-bar-table-data>
 
                     <x-jet-bar-table-data>
@@ -87,17 +91,28 @@
                 <x-jet-input-error for="user.name"/>
             </div>
 
-            {{-- <div class="mb-4">
+            <div class="mb-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" wire:model="user.email" disabled/>
                 <x-jet-input-error for="user.email"/>
-            </div> --}}
+            </div>
 
-            {{-- <div class="mb-4">
-                <x-jet-label for="password" value="{{ __('Contraseña') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" wire:model="user.password"/>
-                <x-jet-input-error for="user.password"/>
-            </div> --}}
+            <div class="mb-4">
+                <div class="col-span-6 sm:col-span-4">
+                    <x-jet-label value="Rol de Usuario"/>
+                    <select id="role" class="block mt-1 w-full" wire:model="user.role">
+                        <option value="">
+                            
+                        </option>
+                        @foreach ($roles as $role)
+                            <option value={{$role->id}}>
+                                {{$role->name}}
+                            </option>
+                        @endforeach
+                    </select>
+                    <x-jet-input-error for="user.role"/>
+                </div>
+            </div>
 
         </x-slot>
         <x-slot name="footer">

@@ -26,6 +26,21 @@
                 <x-jet-input-error for="password"/>
             </div>
 
+            <div class="mb-4">
+                <x-jet-label for="password" value="{{ __('Rol') }}"/>
+                    <select id="role" class="block mt-1 w-full" wire:model="role">
+                        <option value="">
+                            
+                        </option>
+                        @foreach ($roles as $role)
+                            <option value={{$role->id}}>
+                                {{$role->name}}
+                            </option>
+                        @endforeach
+                    </select>
+                <x-jet-input-error for="role"/>
+            </div>
+
         </x-slot>
         <x-slot name="footer">
             <button wire:click="$set('open', false)" class='mx-2 button-invlab inline-flex items-center px-4 py-2 btn-blue border border-gray-300 rounded-md font-semibold text-xm text-white tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition'>

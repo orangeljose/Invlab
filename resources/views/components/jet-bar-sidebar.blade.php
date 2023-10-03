@@ -24,22 +24,31 @@
         [
             'name'   => 'Inventarios',
             'route'  => route('inventorys'),
-            'active' => request()->routeIs('inventorys'),
+            // 'active' => request()->routeIs('inventorys'),
+            'active' => (request()->routeIs('inventorys') || request()->routeIs('muestras')),
             'image' => '/sidebar/inventario-blanco.svg',
-            'childs' => []
+            'childs' => [
+                ['name'   => 'Articulos',
+                'route'  => route('inventorys'),
+                'active' => request()->routeIs('inventorys')                
+                ],
+                ['name'   => 'Muestras',
+                 'route'  => route('muestras'),
+                 'active' => request()->routeIs('muestras'),               
+                ],
+            ]
         ],
-        [
-            'name'   => 'Muestras',
-            'route'  => route('muestras'),
-            'active' => request()->routeIs('muestras'),
-            'image' => '/sidebar/muestra-blanco.svg',
-            'childs' => []
-        ],
+        // [
+        //     'name'   => 'Muestras',
+        //     'route'  => route('muestras'),
+        //     'active' => request()->routeIs('muestras'),
+        //     'image' => '/sidebar/muestra-blanco.svg',
+        //     'childs' => []
+        // ],
         [
             'name'   => 'Reportes',
             'route'  => route('reports'),
             'active' => (request()->routeIs('reports') || request()->routeIs('reports-expiration') || request()->routeIs('reports-inventory')),
-            // 'active' => request()->routeIs('reports'),
             'image' => '/sidebar/articles2-blanco.svg',
             'childs' => [
                 ['name'   => 'Solicitudes',
@@ -94,13 +103,13 @@
                     {{$nav_link['name']}}
                 </a>
             @else
-                <a class="flex justify-start items-center px-4 py-2 mt-2 font-semibold text-white text-xl  {{ $nav_link['active'] ? 'bg-gray-200' : 'bg-transparent' }} rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 hover:bg-gray-200 focus:text-gray-900 focus:bg-gray-200 focus:outline-none focus:shadow-outline" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+                <a class="flex justify-start items-center px-4 py-2 mt-2 font-semibold text-white text-xl  {{ $nav_link['active'] ? 'bg-gray-200' : 'bg-transparent' }} rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 hover:bg-gray-200 focus:text-gray-900 focus:bg-gray-200 focus:outline-none focus:shadow-outline" aria-controls="dropdown-example{{$nav_link['name']}}" data-collapse-toggle="dropdown-example{{$nav_link['name']}}">
                     <img src="{{$nav_link['image']}}" alt="Logo" class="h-8 w-8 mr-2 mt-0">
                     {{$nav_link['name']}}
                     <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 </a>
                 
-                <ul id="dropdown-example" class="hidden py-2 space-y-2 list-none">
+                <ul id="dropdown-example{{$nav_link['name']}}" class="hidden py-2 space-y-2 list-none">
                     @foreach ($nav_link['childs'] as $child)
                         <li>
                             <a class="flex justify-center items-center px-4 py-2 mt-2 font-semibold text-white text-xl  rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 hover:bg-gray-200 focus:text-gray-900 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{$child['route']}}">{{$child['name']}}</a>
