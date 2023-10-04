@@ -1,43 +1,42 @@
 .side-bar-invlab {
-
     --tw-bg-opacity: 1;
-
-    background-color: rgb(56 189 248 / var(--tw-bg-opacity))
+    background-color: rgb(56 189 248 / var(--tw-bg-opacity));
 }
 
 .headers-invlab {
-
     --tw-bg-opacity: 1;
-
-    background-color: rgb(20 184 166 / var(--tw-bg-opacity))
+    background-color: rgb(20 184 166 / var(--tw-bg-opacity));
 }
 
 .button-invlab {
-
     --tw-bg-opacity: 1;
-
-    background-color: rgb(7 89 133 / var(--tw-bg-opacity))
+    background-color: rgb(7 89 133 / var(--tw-bg-opacity));
 }
 
 .button-invlab-edit {
-
     --tw-bg-opacity: 1;
-
-    background-color: rgb(110 231 183 / var(--tw-bg-opacity))
+    background-color: rgb(110 231 183 / var(--tw-bg-opacity));
 }
 
 .button-invlab-yellow {
-
     --tw-bg-opacity: 1;
-
-    background-color: rgb(250 204 21 / var(--tw-bg-opacity))
+    background-color: rgb(250 204 21 / var(--tw-bg-opacity));
 }
 
 .button-invlab-orange {
-
     --tw-bg-opacity: 1;
+    background-color: rgb(251 146 60 / var(--tw-bg-opacity));
+}
 
-    background-color: rgb(251 146 60 / var(--tw-bg-opacity))
+.login-background {
+    background-image: url("https://i.ibb.co/nBpLqfS/fondo.jpg");
+    background-size: contain; 
+    background-position: center center;
+    align-items: center; 
+    background-repeat: no-repeat;
+    position: relative; 
+    background-blend-mode: lighten; 
+    background-color: rgba(90,230,220,0.6);
 }
 /*
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com

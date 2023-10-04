@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="bg-cover" style="background-image: url('{{ asset('https://i.ibb.co/nBpLqfS/fondo.jpg') }}'); background-size: cover; background-position: center center;align-items: center; background-repeat: no-repeat;position: relative; background-blend-mode: lighten; background-color: rgba(90,230,220,0.6);">
+    <div class="bg-cover login-background">
         <x-authentication-invlab-card>
             {{-- <x-slot name="logo">
                 <x-jet-authentication-card-logo />
