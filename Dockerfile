@@ -7,6 +7,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --version=2.4.3 --instal
 COPY . .
 RUN composer install
 
-EXPOSE 80 8000
+EXPOSE 80
 
 CMD ["php","artisan","serve","--host=0.0.0.0", "--port=80"]
