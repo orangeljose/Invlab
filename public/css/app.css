@@ -1210,10 +1210,6 @@ select {
   margin-top: -0.5rem;
   margin-bottom: -0.5rem;
 }
-.mx-1 {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -1375,9 +1371,6 @@ select {
 }
 .w-1\/2 {
   width: 50%;
-}
-.w-1\/6 {
-  width: 16.666667%;
 }
 .w-10 {
   width: 2.5rem;
