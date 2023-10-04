@@ -1,1 +1,3 @@
-php artisan serve --host="0.0.0.0" --port=$RAILWAY_TCP_APPLICATION_PORT
+#!/usr/bin/env sh
+
+php artisan serve --host="0.0.0.0" --port="8000"
